@@ -97,7 +97,7 @@ public class GenerateWordSquare {
         return sortedLettersList;
     }
     
-    private boolean isWordSquareValid(List<String> wordSquare, String letters) {
+    public boolean isWordSquareValid(List<String> wordSquare, String letters) {
 
         Boolean isValid = false;
         
