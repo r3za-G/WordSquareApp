@@ -1,9 +1,7 @@
 plugins {
     id 'java'
+    id 'java-test-fixtures' // Include this plugin if you need test fixtures support
 }
-
-group 'com.example'
-version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -18,7 +16,7 @@ dependencies {
 test {
     useJUnitPlatform()
     testLogging {
-        events "passed", "skipped", "failed"
+        events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
     }
 }
 
@@ -26,7 +24,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-task runMain(type: JavaExec) {
+task run(type: JavaExec) {
     main = 'wordSquare.Main'
     classpath = sourceSets.main.runtimeClasspath
     if (project.hasProperty('args')) {

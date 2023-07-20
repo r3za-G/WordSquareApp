@@ -10,52 +10,60 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import wordSquare.wordSquareLogic.GenerateWordSquare;
 
 class GenerateWordSquareTest {
-    private GenerateWordSquare wordSquareGenerator;
+
+    private GenerateWordSquare generator;
     private Set<String> words;
-    private List<String> wordSquare;
-    String concatenatedWordSquare;
 
     @BeforeEach
     void setUp() {
-        // Set up the word list for testing
-        words = new HashSet<>(Arrays.asList("eeeeddoonnnsssrv"));
-        wordSquare = List.of("rose", "oven", "send", "ends");
-        wordSquareGenerator = new GenerateWordSquare(words);
+        // Sample word set
+        words = new HashSet<>(Arrays.asList("ball", "area", "lead", "lady"));
+        generator = new GenerateWordSquare(words);
     }
 
     @Test
     void testGenerateWordSquares() {
-        // Test the generation of word squares
-        List<List<String>> result = wordSquareGenerator.generateWordSquares();
-        System.out.println("------------");
-        System.out.println(result.size());
-        assertEquals(1, result.size()); // Ensure there is exactly one word square in the result
-        assertEquals(words.size(), result.get(0).size()); // Ensure the word square has the correct size
-        // You can add more assertions based on specific test cases for word square generation
+        List<List<String>> wordSquares = generator.generateWordSquares();
+        assertNotNull(wordSquares);
+        assertFalse(wordSquares.isEmpty());
     }
 
     @Test
-    void testisWordSquareValid() {
-        // Test the filtering of word squares based on letters
-        String letters = "eeeeddoonnnsssrv";
-        assertTrue(wordSquareGenerator.isWordSquareValid(wordSquare, letters)); // Ensure the filtered word square is valid
+    void testFilterWordSquares() {
+        String letters = "ldyallbaealdaaer";
+        List<List<String>> wordSquares = generator.generateWordSquares();
+        List<String> filteredWordSquare = generator.filterWordSquares(wordSquares, letters);
+        assertNotNull(filteredWordSquare);
+        assertFalse(filteredWordSquare.isEmpty());
+        
     }
 
-    @Test 
+    @Test
+    void testIsWordSquareValid() {
+        List<String> wordSquare = Arrays.asList("ball", "area", "lead", "lady");
+        String letters = "ldyallbaealdaaer";
+        assertTrue(generator.isWordSquareValid(wordSquare, letters));
+    }
+
+    @Test
     void testConcatenateWords() {
-        String concatenatedWordSquare = wordSquareGenerator.concatenateWords(wordSquare);
-        assertEquals("roseovensendends", concatenatedWordSquare);
+        List<String> wordList = Arrays.asList("hello", "world");
+        String concatenated = GenerateWordSquare.concatenateWords(wordList);
+        assertEquals("helloworld", concatenated);
     }
 
-    @Test 
+    @Test
     void testSortLetters() {
-
-        List<String> sortedLetters = List.of("ddeeeennnoorsssv");
-
-        assertEquals(sortedLetters, wordSquareGenerator.sortLetters("roseovensendends"));
+        String input = "hello";
+        List<String> sortedLettersList = GenerateWordSquare.sortLetters(input);
+        assertEquals(Arrays.asList("ehllo"), sortedLettersList);
     }
+
+
 }

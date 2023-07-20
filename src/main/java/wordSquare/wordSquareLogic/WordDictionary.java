@@ -10,11 +10,13 @@ import java.util.Set;
 public class WordDictionary {
     private Set<String> validWords;
 
+    // Constructor that loads valid words from a given URL
     public WordDictionary(String wordURL) {
         validWords = loadWordsFromURL(wordURL);
     }
 
-    private Set<String> loadWordsFromURL(String wordURL) {
+    // Load words from a URL and create a set of valid words
+    public Set<String> loadWordsFromURL(String wordURL) {
         Set<String> filteredWords = new HashSet<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(wordURL).openStream()))) {
             String word;
@@ -28,10 +30,12 @@ public class WordDictionary {
         return filteredWords;
     }
 
+    // Check if a word is in the set of valid words
     public boolean isValidWord(String word) {
         return validWords.contains(word.toLowerCase());
     }
 
+    // Filter words of a given size that contain specified letters
     public Set<String> filterWords(int wordSize, String letters) {
         Set<String> filteredWords = new HashSet<>();
         for (String word : validWords) {
@@ -42,7 +46,8 @@ public class WordDictionary {
         return filteredWords;
     }
 
-    private boolean containsLetters(String letters, String word) {
+    // Check if a word contains all the letters in a given set of letters
+    public boolean containsLetters(String letters, String word) {
         Set<Character> lettersSet = new HashSet<>();
         for (char c : letters.toCharArray()) {
             lettersSet.add(c);
