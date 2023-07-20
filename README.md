@@ -2,6 +2,9 @@
 
 Java application that generates a valid word square from the user's input.
 
+This app uses gradle to compile, run and test the app. Please download gradle onto your machine before cloning.
+***(https://gradle.org/install/)***
+
 ## Structure
 
 * **README.md** : this file
