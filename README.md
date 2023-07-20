@@ -20,9 +20,9 @@ Please request access to the Git repository from myself.
 
 ## Following word squares to test:
 
-```gradle run args="4 aaccdeeeemmnnnoo"```
-```gradle run args="5 aaaeeeefhhmoonssrrrrttttw"```
-```gradle run args="5 aabbeeeeeeeehmosrrrruttvv"```
-```gradle run args="7 aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy"```
+* ```gradle run args="4 aaccdeeeemmnnnoo"```
+* ```gradle run args="5 aaaeeeefhhmoonssrrrrttttw"```
+* ```gradle run args="5 aabbeeeeeeeehmosrrrruttvv"```
+* ```gradle run args="7 aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy"```
 
 
