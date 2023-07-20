@@ -18,7 +18,7 @@ Please request access to the Git repository from myself.
 ## Running the unit tests
 * To run the JUnit tests, type ```gradle test``` in the command line.
 
-## Following word squares to test:
+## Following word squares
 
 * ```gradle run args="4 aaccdeeeemmnnnoo"```
 * ```gradle run args="5 aaaeeeefhhmoonssrrrrttttw"```
