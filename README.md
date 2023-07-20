@@ -13,7 +13,8 @@ Java application that generates a valid word square from the user's input.
 Please request access to the Git repository from myself.
 
 ## Running the application from the command line.
-* Once the project has been cloned, we can compile the Java files and run the application using Gradle. Runnning this command from the root directory of the project to run the app with the specified arguments ```gradle run args="n xxxxxxxxxx"``` (n being the number of rows / columns of the word square and the second argument being the valid letters to create a word square).
+* Once the project has been cloned, we can compile the Java files and run the application using Gradle. 
+* Run this command ```gradle run args="n xxxxxxxx"``` from the root directory of the project to run the app with the specified arguments ('n' being the number of rows / columns of the word square and 'xxxxxxxx' being the valid letters to create a word square).
 
 ## Running the unit tests
 * To run the JUnit tests, type ```gradle test``` in the command line.
